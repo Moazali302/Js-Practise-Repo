@@ -1,96 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>frontend Web development</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>frontend Web development</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <caption><b> Employe list table </b></caption>
-    <table>
-        <thead>
-             <tr>
-       <td colspan="2"> Name</td>
-         <td> Designation</td>
-           <td> Favourite Language</td>
-     </tr>
- <tr>
-        </thead>
+  <caption>
+    <b> Employe list table </b></caption>
+  <table>
+    <thead>
+      <tr>
+        <td colspan="2"> Name</td>
+        <td> Designation</td>
+        <td> Favourite Language</td>
+      </tr>
+      <tr>
+    </thead>
     <tbody>
-         <td colspan="2"> Moaz</td>
-         <td> Biginner</td>
-           <td> Javascript</td>
- </tr>
-   <tr>
-     <td colspan="2">Faisal</td>
-         <td> Biginner</td>
-           <td> Java</td>
-    <tr>
+      <td colspan="2">Moaz</td>
+      <td>Biginner</td>
+      <td>Javascript</td>
+      </tr>
+      <tr>
+        <td colspan="2">Faisal</td>
+        <td> Biginner</td>
+        <td> Java</td>
+      <tr>
 
-    </tr>
+      </tr>
 
     </tbody>
-     <tfoot>
-       <td colspan="2"> Ahmad</td>
-         <td > Senior Developer</td>
-           <td > Swift</td>
-           </tr>
+    <tfoot>
+      <td colspan="2"> Ahmad</td>
+      <td>Senior Developer</td>
+      <td>Swift</td>
+      </tr>
     </tfoot>
-    </table>
-    <br>
-    <br>
+  </table>
+  <br>
+  <br>
 
-    <section><b>Programing basic Languages </b> </section>
-    <ul type="square">
-   <li>c++</li>
-   <li>c#</li>
- <li>java</li>
-   <li>kotlin</li>
-<br>
-<h2> Basic WebApp Development Languages!</h2>
-   <ol type="a">
-    <li>HTML</li>
-    <li>CSS</li>
-    <li>Javascript</li>
-    <li>Angular</li>
-   </ol>
-    </ul>
-    <h2> Form and input </h2>
-    <div>
+  <section><b>Programing basic Languages </b> </section>
+  <ul type="square">
+    <li>c++</li>
+    <li>c#</li>
+    <li>java</li>
+    <li>kotlin</li>
+    <br>
+    <h2> Basic WebApp Development Languages!</h2>
+    <ol type="a">
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>Javascript</li>
+      <li>Angular</li>
+    </ol>
+  </ul>
+  <h2> Form and input </h2>
+  <div>
     <form action="Post">
-        <label name="name"> Enter your name</label>
-    <input type="text" required name="username" placeholder="Enter your name">
-    </div>
-     <div>
-        <label>Enter your Email</label>
-        <input type="email" required name="useremail"  placeholder="Enter your Email">
-     </div>
+      <label name="name"> Enter your name</label>
+      <input type="text" required name="username" placeholder="Enter your name">
+  </div>
+  <div>
+    <label>Enter your Email</label>
+    <input type="email" required name="useremail" placeholder="Enter your Email">
+  </div>
 
-    <br>
-    <div>
-        <input type="radio"id="male" name="gender" value="male">
-        <label for="male">Male</label>
-        <input type="radio" id="female" name="gender"value="female">
-        <label for="female">Female</label>
-    </div>
-    <br>
-    <div>
-        <input type="checkbox" name="checkbox" value="yes">
-        <label for="checkbox"> you'r intrested in coding ? </label>
-    </div>
-    <br>
-    <div>
-        <textarea rows="5" cols="50" maxlength="500" placeholder="Enter your comments about coding!"></textarea>
-    </div>
-   
-    <select name="database" >
-        <option value="mysql">MySQL</option>
-        <option value="firebase">FireBase</option>
-        <option value="mongodb">MongoDB</option>
-        <option value="supabase">SupaBase</option>
+  <br>
+  <div>
+    <input  type="radio" id="male" name="gender" value="male">
+    <label  for="male">Male</label>
+    <input  type="radio" id="female" name="gender" value="female">
+    <label  for="female">Female</label>
+  </div>
+  <br>
+  <div>
+    <input type="checkbox" name="checkbox" value="yes">
+    <label for="checkbox">you'r intrested in coding ?</label>
+  </div>
+  <br>
+  <div>
+    <textarea rows="5" cols="50" maxlength="500" placeholder="Enter your comments about coding!"></textarea>
+  </div>
+  <div>
+    <select name="database">
+      <option value="mysql">MySQL</option>
+      <option value="firebase">FireBase</option>
+      <option value="mongodb">MongoDB</option>
+      <option value="supabase">SupaBase</option>
     </select>
-    </form>
-<script src="practise.js"></script>
+  </div>
+  </form>
+
+
+  <!-- self Quiz  make a  form vertical not using br tag -->
+  <!-- <div style="padding-top: 2rem;padding:10px;margin:20px">
+     <form  action="post"> 
+        <div>
+   <label for="name">Enter name</label>  
+   </div>
+   <div>
+    <input type="text" name="name" required placeholder="Enter name">
+    </div>
+<div>
+   <label for="city">Enter your city</label> 
+   <div>
+    <input type="text" name="city" required placeholder="Enter your city">
+        </div>
+        </div>
+      <div>
+   <label for="userpincode">Enter your pincode</label>  
+   </div>
+   <div>
+    <input type="number" name="city" required placeholder="Enter your pincode">
+        </div>
+    </div> -->
+
+  </form>
+<br>
+<br>
+<h1><strong> Fontend Road Map:</strong>
+</h1>
+<div>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/DbRXv5TXMEE?si=YLnMkzzU43C1hKix"
+    title ="YouTube video player" frameborder="0"
+    allow ="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+  </iframe>
+  </div>
+    <div>
+      <h1>
+        Three ways to Add CSS:
+      </h1>
+    </div>
+    <div>
+      <ol type="a" id="types">
+        <strong>
+     <li>Inline CSS (not recommended)</li>
+     <p><i>CSS directly in the HTML tag using the style attribute.</i></p>
+     <li>Internal CSS</li>
+     <p><i>CSS written inside style tag in the HTML Head </i></p>
+     <li> External CSS</li> 
+     <p><i>CSS in a seprate CSS File that link in htm head</i></p>
+     </strong>
+      </ol>
+    </div>
+
+
+  <script src="practise.js"></script>
 </body>
+
 </html>

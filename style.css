@@ -1,3 +1,13 @@
 td{
     border: 3px solid black;
 }
+#types{
+    color:black;
+    font-size: 18px;
+    list-style: none;
+}
+h1{
+    text-align: center;
+    font-size: 40px;
+    color: rgba(185, 83, 36, 0.591);
+}
