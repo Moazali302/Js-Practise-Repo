@@ -89,3 +89,28 @@ div p{
     background-color: green;
     text-align: center;
 }
+nav{
+    padding: 0.5rem 0.1rex;
+    background: transparent;
+}
+ nav ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+ul li {
+   margin: 10px;
+   padding: 0.3rem;
+}
+ul li a{
+    padding: 8px 10px;
+    text-decoration: none;
+    display: block;
+    font-weight: bold;
+    transition:background-color 0.3s ease ;
+}
+ul li a:hover{
+     background-color: #b6b1cd;
+      border-radius: 4px;
+}
