@@ -300,19 +300,21 @@ let products = [
   { name: "Laptop", price: 1200 },
   { name: "Phone", price: 800 },
   { name: "Tablet", price: 500 },
-  { name: "Headphones", price: 150 }
+  { name: "Headphones", price: 150 },
 ];
-       //Method :1
-let newp=products.map(prod=>{
-   if(prod.price>=500){
+//Method :1
+let newp = products.map((prod) => {
+  if (prod.price >= 500) {
     return prod.name;
-   }
+  }
   return prod;
-}) 
-console.log(newp)
+});
+console.log(newp);
 
-    //Method #2  
-let newmethod=products.filter(produ => produ.price>=500).map(produ =>produ.name)
+//Method #2
+let newmethod = products
+  .filter((produ) => produ.price >= 500)
+  .map((produ) => produ.name);
 console.log(newmethod);
 
 //object keys ka count
@@ -322,17 +324,126 @@ console.log(Object.keys(car).length);
 
 // Sirf values ka array banao
 let person = { name: "Sara", age: 25, city: "Lahore" };
- 
+
 console.log(Object.values(person));
 
 // Output → ["Sara", 25, "Lahore"]
 
-
-
 // For...in loop se sab properties print karo
 let book = { title: "JS Basics", author: "John Doe", price: 500 };
-  for(let key in book)
-    console.log(`${key}: ${book[key]}`)
+for (let key in book) console.log(`${key}: ${book[key]}`);
 
 // Output → title: JS Basics, author: John Doe, price: 500
 
+//Nested object me se ek property access karo
+let student1 = {
+  name: "Ali",
+  marks: { math: 90, science: 85 },
+};
+
+console.log("science marks:", student1.marks.science);
+
+// Output → Science marks: 85
+
+// Students array hai, jisme har student ka name aur marks object hota hai.
+// Tumhe har student ka total marks nikal ke ek naya array banana hai jisme student ka name aur total marks ho.
+let students2 = [
+  { name: "Ali", marks: { math: 80, science: 90, english: 70 } },
+  { name: "Sara", marks: { math: 85, science: 95, english: 75 } },
+  { name: "Omar", marks: { math: 70, science: 80, english: 65 } },
+];
+let std = students2.map((student) => {
+  let total = Object.values(student.marks).reduce((acc, mark) => acc + mark, 0);
+
+  return {
+    name: student.name,
+    totalmarks: total,
+  };
+});
+console.log(std);
+
+// Ek function square banao jo ek number lega aur uska square return kare.
+
+function squ(n) {
+  return n * n;
+}
+console.log(squ(5));
+
+// Ek function isPositive banao jo check kare number positive hai ya nahi (true/false return kare).
+function isPositive(num) {
+  return num >= 0;
+}
+console.log(isPositive(2));
+console.log(isPositive(-4));
+
+//  Ek arrow function banao jo ek number lega aur batayega ke wo even hai ya odd.
+// Agar even hai → "Even number" return kare
+// Agar odd hai → "Odd number" return kare
+const checkval = (n) => {
+  if (n % 2 === 0) {
+    return "even";
+  } else {
+    return "odd";
+  }
+};
+console.log(checkval(4));
+console.log(checkval(5));
+
+// Ek arrow function banao jo ek array lega aur us array ka sum return kare.
+
+const arrsum = (arr) => {
+  return arr.reduce((acc, currval) => acc + currval, 0);
+};
+console.log(arrsum([2, 3, 4]));
+// Ek arrow function banao jo ek array lega aur usme se sirf odd numbers ka square 
+// nikal kar ek nayi array return kare.
+
+const sumod = (num) => {
+  return num
+    .filter((n) => n % 2 !== 0)
+    .map((n) => n * n)
+    .reduce((acc, sumodd) => acc + sumodd, 0);
+};
+console.log(sumod([1, 2, 3, 4, 5, 6]));
+
+//Ek arrow function banao jo students ka array lega (har student ke naam aur marks honge)
+//  aur sirf un students ke naam return kare jin ke marks 50 se zyada hain.
+
+const student4=()=>{
+  let studnetob=[
+  {name: "Ali", marks: 40},
+  {name: "Sara", marks: 60}
+];
+  return studnetob.map(mar=> mar.marks>50);
+};
+console.log(student4());
+
+//Ek arrow function banao jo ek string lega aur return karega string me vowels ki total count.
+      
+const vowelcount=(str)=>{
+  let vowl=["a","e","i","o","u"];
+ let letter=str.toLowerCase().split("");
+ let cont= letter.reduce((acc,chec)=>{
+  if(vowl.includes(chec)){
+    return acc+1;
+  }
+  return acc;
+  },0);
+
+  return cont;
+};
+console.log(vowelcount("Pakistan"));
+
+//Ek arrow function banao jo ek array lega aur return karega largest number.
+ const finmaximum=(number)=>{
+    return number.reduce((acc,max)=> acc>max? acc:max,[0]);
+ }
+ console.log(finmaximum([1,2,3,4,5,24]));
+
+// Ek arrow function banao jo ek array of prices lega aur return karega total bill with 10% discount.
+
+const totalbil=(pric)=>{
+ let dis=pric.map(pr =>pr- pr*0.1);
+ return dis.reduce((acc,price)=> (acc+price),0);
+};
+console.log(totalbil([100,200,50]));

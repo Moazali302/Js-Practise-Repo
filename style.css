@@ -7,8 +7,7 @@
 }
 
 body {
-  background: 
-    url("https://www.toptal.com/designers/subtlepatterns/uploads/dot-grid.png"),
+  background: url("https://www.toptal.com/designers/subtlepatterns/uploads/dot-grid.png"),
     linear-gradient(135deg, #f0f4f8 0%, #d9e4f5 100%);
   background-attachment: fixed;
   background-size: auto, cover;
@@ -25,7 +24,7 @@ header {
   width: 100%;
   z-index: 1000;
   background: linear-gradient(90deg, #1e3c72, #2a5298);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 nav {
@@ -60,7 +59,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  background: rgba(255,255,255,0.15);
+  background: rgba(255, 255, 255, 0.15);
   color: #f1c40f;
 }
 
@@ -80,12 +79,13 @@ nav ul li a:hover {
 }
 
 /* ===== Generic Box ===== */
-div, section {
+div,
+section {
   background: white;
   padding: 20px;
   margin: 20px auto;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   width: 85%;
 }
 
@@ -108,7 +108,8 @@ thead {
   color: white;
 }
 
-td, th {
+td,
+th {
   border: 1px solid #ddd;
   padding: 12px;
   text-align: center;
@@ -132,7 +133,7 @@ form {
   background: white;
   padding: 25px;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 form div {
@@ -163,10 +164,12 @@ textarea {
   min-height: 100px;
 }
 
-input:focus, textarea:focus, select:focus {
+input:focus,
+textarea:focus,
+select:focus {
   border-color: #3498db;
   outline: none;
-  box-shadow: 0 0 5px rgba(52,152,219,0.3);
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
 }
 
 input[type="radio"],
@@ -213,7 +216,8 @@ button:hover {
     display: flex;
   }
 
-  div, section {
+  div,
+  section {
     width: 95%;
   }
 
