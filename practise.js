@@ -206,43 +206,44 @@ console.log(sumodd);
 
 // Count how many words have more than 4 letters
 let data = ["apple", "cat", "banana", "dog", "grape"];
-let words=data.reduce((acc,count)=>{
-   if(count.length>4){
-    return acc+1
-   }
-   return acc
-},0)
+let words = data.reduce((acc, count) => {
+  if (count.length > 4) {
+    return acc + 1;
+  }
+  return acc;
+}, 0);
 console.log(words);
 
 // find the smallest number of the aray
-let numb=[8, 3, 6, 2, 10]
+let numb = [8, 3, 6, 2, 10];
 
-let smalestnum=numb.reduce((acc,smalnum)=>smalnum<acc? smalnum:acc,numb[0])
+let smalestnum = numb.reduce(
+  (acc, smalnum) => (smalnum < acc ? smalnum : acc),
+  numb[0]
+);
 console.log(smalestnum);
- 
-//find total price  from cart 
-let cart=[{price: 100}, {price: 250}, {price: 75}]
-let objval=cart.reduce((acc,value)=>acc +value.price,0)
+
+//find total price  from cart
+let cart = [{ price: 100 }, { price: 250 }, { price: 75 }];
+let objval = cart.reduce((acc, value) => acc + value.price, 0);
 console.log(objval);
 
-
-
 // Create a frequency counter for letters
-let string="hello";
-let fre=string.split("").reduce((acc,char)=>{
-    acc[char]=(acc[char]||0)+1
-   return acc;
-  },{});
+let string = "hello";
+let fre = string.split("").reduce((acc, char) => {
+  acc[char] = (acc[char] || 0) + 1;
+  return acc;
+}, {});
 
 console.log(fre);
 
 //square of even number and its sum
-let num=[1,2,3,4,5,6]
-let checkeven=num.filter((num)=>num%2===0)
+let num = [1, 2, 3, 4, 5, 6];
+let checkeven = num.filter((num) => num % 2 === 0);
 
-let square=checkeven.map((squ)=> squ*squ)
+let square = checkeven.map((squ) => squ * squ);
 
-let sumofnum=square.reduce((acc,sum)=>acc+sum,0);
+let sumofnum = square.reduce((acc, sum) => acc + sum, 0);
 
 console.log(checkeven);
 console.log(square);
@@ -250,7 +251,88 @@ console.log(sumofnum);
 
 // Average marks of students who scored 50+
 let student = [
-  {name: "Ali", marks: 45},
-  {name: "Sara", marks: 60},
-  {name: "Omar", marks: 80}
+  { name: "Ali", marks: 45 },
+  { name: "Sara", marks: 60 },
+  { name: "Omar", marks: 80 },
 ];
+let passed = student.filter((stu) => stu.marks >= 50);
+
+let makearray = passed.map((stu) => stu.marks);
+
+let total = makearray.reduce((acc, curr) => acc + curr, 0);
+
+let aver = total / makearray.length;
+
+console.log(aver);
+
+// Problem:
+// Words starting with "a" ko uppercase karke, comma-separated string me join karo.
+
+let fruits = ["apple", "banana", "avocado", "grape"];
+let result = fruits
+  .filter((word) => word.startsWith("a"))
+  .map((word) => word.toUpperCase())
+  .join(",");
+console.log(result);
+
+//   Problem:
+// Ek shopping cart ka total price nikalna hai.
+
+let cartt = [
+  { name: "Laptop", price: 1000 },
+  { name: "Phone", price: 500 },
+  { name: "Headphones", price: 150 },
+];
+let pricevalue = cartt.map((p) => p.price).reduce((acc, item) => acc + item, 0);
+console.log(pricevalue);
+
+//apply 10% discount
+
+let discount = cartt.reduce((acc, item) => {
+  let discounted = item.price - item.price * 0.1; //apply 10% disocunt
+  let finalamount = discounted + discounted * 0.08; // add tax 8%
+  return acc + finalamount;
+}, 0);
+console.log(discount);
+
+// Sirf un products ke names ka array banao jinki price >= 500 hai
+let products = [
+  { name: "Laptop", price: 1200 },
+  { name: "Phone", price: 800 },
+  { name: "Tablet", price: 500 },
+  { name: "Headphones", price: 150 }
+];
+       //Method :1
+let newp=products.map(prod=>{
+   if(prod.price>=500){
+    return prod.name;
+   }
+  return prod;
+}) 
+console.log(newp)
+
+    //Method #2  
+let newmethod=products.filter(produ => produ.price>=500).map(produ =>produ.name)
+console.log(newmethod);
+
+//object keys ka count
+let car = { brand: "Toyota", model: "Corolla", year: 2020 };
+console.log(Object.keys(car).length);
+// Output → 3
+
+// Sirf values ka array banao
+let person = { name: "Sara", age: 25, city: "Lahore" };
+ 
+console.log(Object.values(person));
+
+// Output → ["Sara", 25, "Lahore"]
+
+
+
+// For...in loop se sab properties print karo
+let book = { title: "JS Basics", author: "John Doe", price: 500 };
+  for(let key in book)
+    console.log(`${key}: ${book[key]}`)
+
+// Output → title: JS Basics, author: John Doe, price: 500
+

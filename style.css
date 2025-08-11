@@ -1,116 +1,234 @@
-td{
-    border: 3px solid black;
+/* ===== Global Reset ===== */
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
-#types{
-    color:black;
-    font-size: 18px;
-    list-style: none;
-}
-h1{
-    text-align: center;
-    font-size: 40px;
-    color: rgba(185, 83, 36, 0.591);
-}
-.box{
-    padding: 20px;
-    margin-bottom: 80px;
-    border: 2px solid black;
-    color: green;
-    width: 300px;
-    box-sizing: border-box;
-    overflow: hidden;
 
+body {
+  background: 
+    url("https://www.toptal.com/designers/subtlepatterns/uploads/dot-grid.png"),
+    linear-gradient(135deg, #f0f4f8 0%, #d9e4f5 100%);
+  background-attachment: fixed;
+  background-size: auto, cover;
+  color: #333;
+  line-height: 1.6;
+  padding-top: 70px;
 }
-.box1{
-    padding: 20px;
-    border: 2px solid blue;
-    width: 300px;
-    color: red;
-    box-sizing: border-box;
-    margin-top: 30px;
-}
-    
-   /* practical task  */
 
+/* ===== Navbar ===== */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: linear-gradient(90deg, #1e3c72, #2a5298);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
 
-div p:nth-child(1){
-    color: rgb(68, 4, 4);
-    background-color: rgb(255, 255, 99);
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1.5rem;
 }
-div p{
-    color: rgba(0, 0, 0, 0.653);
-    background-color: rgb(212, 12, 12);
+
+nav .logo {
+  color: white;
+  font-size: 1.3rem;
+  font-weight: bold;
 }
-/* task complete */
-.px-box{
-    width: 400px;
-      height: auto;
-      padding: 10px;
-      background-color: rgba(13, 95, 2, 0.872);
-      color: white;
-      text-align: center;
-      border: 2px solid black;
-      line-height: normal;
-      font-size: 20px;
+
+nav ul {
+  display: flex;
+  list-style: none;
 }
-.parent{
-    width:100%;
-    height: 200px;
-    background-color: #6f7e44;
+
+nav ul li {
+  margin: 0 10px;
 }
-.child{
-    width: 50%;
-    height:100px;
-    color: black;
-    background-color: #949492;
-    text-align: center;
-    line-height: 100px;
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
 }
-.parent1{
-    width: 90%;
+
+nav ul li a:hover {
+  background: rgba(255,255,255,0.15);
+  color: #f1c40f;
+}
+
+/* Hamburger menu */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  background: white;
+  height: 3px;
+  width: 25px;
+  margin: 4px 0;
+  border-radius: 2px;
+}
+
+/* ===== Generic Box ===== */
+div, section {
+  background: white;
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  width: 85%;
+}
+
+/* ===== Table ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px; /* scroll for small screens */
+}
+
+caption {
+  caption-side: top;
+  font-size: 1.3rem;
+  font-weight: bold;
+  padding: 10px;
+}
+
+thead {
+  background-color: #2a5298;
+  color: white;
+}
+
+td, th {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: center;
+}
+
+tbody tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+tfoot {
+  background: #ecf0f1;
+}
+
+/* Table container for scroll */
+.table-container {
+  overflow-x: auto;
+}
+
+/* ===== Form ===== */
+form {
+  background: white;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+form div {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border 0.3s ease;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: #3498db;
+  outline: none;
+  box-shadow: 0 0 5px rgba(52,152,219,0.3);
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  margin-right: 8px;
+}
+
+button {
+  padding: 10px 20px;
+  background: #2980b9;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #3498db;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 900px) {
+  nav ul {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: #1e3c72;
+    flex-direction: column;
+    width: 200px;
+    display: none;
+  }
+
+  nav ul.show {
     display: flex;
-    background-color: grey;
-      margin: auto;
+  }
 
+  nav ul li {
+    margin: 10px 0;
+    text-align: center;
+  }
 
-}
-.child1{
-   height:100px;
-     width:50%;
-   background-color: blue;
-    text-align: center;
-   color: white;
-   line-height: 100px;
-}
-.child2{
-    height: 100px;
-    width: 50%;
-   line-height: 100px;
-    background-color: green;
-    text-align: center;
-}
-nav{
-    padding: 0.5rem 0.1rex;
-    background: transparent;
-}
- nav ul{
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  .menu-toggle {
     display: flex;
+  }
+
+  div, section {
+    width: 95%;
+  }
+
+  .table-container {
+    width: 95%;
+    margin: auto;
+  }
 }
-ul li {
-   margin: 10px;
-   padding: 0.3rem;
-}
-ul li a{
-    padding: 8px 10px;
-    text-decoration: none;
-    display: block;
-    font-weight: bold;
-    transition:background-color 0.3s ease ;
-}
-ul li a:hover{
-     background-color: #b6b1cd;
-      border-radius: 4px;
+
+@media (max-width: 500px) {
+  nav .logo {
+    font-size: 1rem;
+  }
+
+  button {
+    width: 100%;
+  }
 }
