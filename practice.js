@@ -449,4 +449,43 @@ const totalbil=(pric)=>{
 console.log(totalbil([100,200,50]));
 
 
-alert("hello");
+//find factorial of the number
+ const factorial=(num)=>{
+  let fact=1;
+  for(let i=1;i<=num;i++){
+  fact=fact*i;
+  }
+  return fact;
+ } 
+ console.log(factorial(5));
+
+ const reverstr=(string)=>{
+   return string.split("").reverse().join("");
+ }
+ console.log(reverstr("Hello"));
+
+// Test function to verify script is loading
+console.log("✅ JavaScript file loaded successfully!");
+console.log("🎯 Open browser console (F12) to see all outputs!");
+
+// Add a simple test button to verify DOM manipulation
+document.addEventListener('DOMContentLoaded', function() {
+    console.log("🚀 DOM fully loaded!");
+    
+    // Create a test button
+    const testDiv = document.createElement('div');
+    testDiv.innerHTML = `
+        <h3 style="color: green; margin: 20px 0;">✅ JavaScript is Working!</h3>
+        <p style="color: blue;">Check the console (F12) to see all your practice outputs</p>
+        <button id="testBtn" style="background: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Test Button</button>
+    `;
+    
+    // Insert at the beginning of body
+    document.body.insertBefore(testDiv, document.body.firstChild);
+    
+    // Add click event to test button
+    document.getElementById('testBtn').addEventListener('click', function() {
+        alert('🎉 JavaScript is working perfectly! Check console for all outputs.');
+        console.log('🎯 Button clicked successfully!');
+    });
+});
