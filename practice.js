@@ -447,3 +447,6 @@ const totalbil=(pric)=>{
  return dis.reduce((acc,price)=> (acc+price),0);
 };
 console.log(totalbil([100,200,50]));
+
+
+alert("hello");
