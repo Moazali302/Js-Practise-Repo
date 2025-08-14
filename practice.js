@@ -395,7 +395,7 @@ const arrsum = (arr) => {
   return arr.reduce((acc, currval) => acc + currval, 0);
 };
 console.log(arrsum([2, 3, 4]));
-// Ek arrow function banao jo ek array lega aur usme se sirf odd numbers ka square 
+// Ek arrow function banao jo ek array lega aur usme se sirf odd numbers ka square
 // nikal kar ek nayi array return kare.
 
 const sumod = (num) => {
@@ -409,83 +409,203 @@ console.log(sumod([1, 2, 3, 4, 5, 6]));
 //Ek arrow function banao jo students ka array lega (har student ke naam aur marks honge)
 //  aur sirf un students ke naam return kare jin ke marks 50 se zyada hain.
 
-const student4=()=>{
-  let studnetob=[
-  {name: "Ali", marks: 40},
-  {name: "Sara", marks: 60}
-];
-  return studnetob.map(mar=> mar.marks>50);
+const student4 = () => {
+  let studnetob = [
+    { name: "Ali", marks: 40 },
+    { name: "Sara", marks: 60 },
+  ];
+  return studnetob.map((mar) => mar.marks > 50);
 };
 console.log(student4());
 
 //Ek arrow function banao jo ek string lega aur return karega string me vowels ki total count.
-      
-const vowelcount=(str)=>{
-  let vowl=["a","e","i","o","u"];
- let letter=str.toLowerCase().split("");
- let cont= letter.reduce((acc,chec)=>{
-  if(vowl.includes(chec)){
-    return acc+1;
-  }
-  return acc;
-  },0);
+
+const vowelcount = (str) => {
+  let vowl = ["a", "e", "i", "o", "u"];
+  let letter = str.toLowerCase().split("");
+  let cont = letter.reduce((acc, chec) => {
+    if (vowl.includes(chec)) {
+      return acc + 1;
+    }
+    return acc;
+  }, 0);
 
   return cont;
 };
 console.log(vowelcount("Pakistan"));
 
 //Ek arrow function banao jo ek array lega aur return karega largest number.
- const finmaximum=(number)=>{
-    return number.reduce((acc,max)=> acc>max? acc:max,[0]);
- }
- console.log(finmaximum([1,2,3,4,5,24]));
+const finmaximum = (number) => {
+  return number.reduce((acc, max) => (acc > max ? acc : max), [0]);
+};
+console.log(finmaximum([1, 2, 3, 4, 5, 24]));
 
 // Ek arrow function banao jo ek array of prices lega aur return karega total bill with 10% discount.
 
-const totalbil=(pric)=>{
- let dis=pric.map(pr =>pr- pr*0.1);
- return dis.reduce((acc,price)=> (acc+price),0);
+const totalbil = (pric) => {
+  let dis = pric.map((pr) => pr - pr * 0.1);
+  return dis.reduce((acc, price) => acc + price, 0);
 };
-console.log(totalbil([100,200,50]));
-
+console.log(totalbil([100, 200, 50]));
 
 //find factorial of the number
- const factorial=(num)=>{
-  let fact=1;
-  for(let i=1;i<=num;i++){
-  fact=fact*i;
+const factorial = (num) => {
+  let fact = 1;
+  for (let i = 1; i <= num; i++) {
+    fact = fact * i;
   }
   return fact;
- } 
- console.log(factorial(5));
+};
+console.log(factorial(5));
 
- const reverstr=(string)=>{
-   return string.split("").reverse().join("");
- }
- console.log(reverstr("Hello"));
+const reverstr = (string) => {
+  return string.split("").reverse().join("");
+};
+console.log(reverstr("Hello"));
 
-// Test function to verify script is loading
-console.log("✅ JavaScript file loaded successfully!");
-console.log("🎯 Open browser console (F12) to see all outputs!");
+//checl varialble tyoe ;
+let age = "24";
+console.log(typeof age);
 
-// Add a simple test button to verify DOM manipulation
-document.addEventListener('DOMContentLoaded', function() {
-    console.log("🚀 DOM fully loaded!");
-    
-    // Create a test button
-    const testDiv = document.createElement('div');
-    testDiv.innerHTML = `
-        <h3 style="color: green; margin: 20px 0;">✅ JavaScript is Working!</h3>
-        <p style="color: blue;">Check the console (F12) to see all your practice outputs</p>
-        <button id="testBtn" style="background: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Test Button</button>
-    `;
-    
-    // Insert at the beginning of body
-    document.body.insertBefore(testDiv, document.body.firstChild);
-    
-    // Add click event to test button
-    document.getElementById('testBtn').addEventListener('click', function() {
-        alert('🎉 JavaScript is working perfectly! Check console for all outputs.');
-        console.log('🎯 Button clicked successfully!');
-    });
+let fru = ["apple", "mango", "banana"];
+let rev = fru.reverse().join(",");
+console.log(rev);
+
+function isPalindrone(str) {
+  let reversed = str.split("").reverse().join("");
+  return reversed === str;
+}
+console.log(isPalindrone("level"));
+console.log(isPalindrone("apple"));
+
+// Maximum & Sum of Array
+// 1) Maximum number find karo
+// 2) Sum calculate karo
+let nums = [3, 7, 2, 9, 4];
+let maxi = Math.max(...nums);
+
+console.log(maxi);
+let sumofnums = nums.reduce((acc, sumoff) => acc + sumoff, 0);
+
+console.log(sumofnums);
+//find even numver
+function findEven(n) {
+  for (let i = 1; i <= n; i++) {
+    if (i % 2 === 0) {
+      console.log(i);
+    }
+  }
+}
+findEven(10);
+
+let employe = {
+  name: "Ali",
+  age: 23,
+  grade: 13,
+};
+console.log(employe.name);
+console.log(employe.age);
+
+//     Ek object car banao jisme keys: brand, model, year ho.
+// for...in loop use karke saare keys aur values print karo.
+
+let Car = {
+  brand: "toyota",
+  model: "civic",
+  year: 2025,
+};
+
+console.log(Object.keys(Car)); //find object keys
+console.log(Object.values(Car)); //find object values;
+for (let keys in Car) console.log("key :", Car[keys]); //key values;
+
+// Ek object student banao jisme name, rollNo, marks ho.
+// Object.entries() ka use karke saare key-value pairs print karo.
+let student5 = {
+  name: "Muaz",
+  rollno: 1860,
+  marks: 80,
+};
+Object.entries(student5).forEach(([keys, values]) => {
+  console.log(`${keys},${values}`);
 });
+// Ek object book banao jisme title, author, year ho.
+// Nayi property pages add karo.
+// year ko update karo.
+// author ko delete karo.
+let Book = {
+  title: "English",
+  author: "alamaiqbal",
+  year: 2021,
+};
+Book.pages = 25;
+Book.year = 2022;
+delete Book.author;
+console.log(Book);
+
+// Ek variable library banao jo ek array of objects ho.
+//  Har object me title, author, year ho.
+// Teesri book ka title print karo.
+// forEach loop se saare books ka title aur year print karo.
+
+let library = [
+  { title: "Book English", author: "Mirza Goldy", year: 2024 },
+  { title: "Book Math", author: "Musa", year: 2025 },
+  { title: "Book coding", author: "but", year: 2023 },
+];
+let foundbook = library.find((book) => book.title === "Book coding");
+console.log(foundbook);
+
+console.log(library[2].title);
+library.forEach((book) => {
+  console.log(book.title, "-", book.year);
+});
+
+// Sirf wo books filter karo jo 2024 ya uske baad publish hui hain.
+// Filter ki hui list ko year ke descending order (latest first) me sort karo.
+// Final result me sirf title aur year print karo.
+
+let library1 = [
+  { title: "Book English", author: "Mirza Goldy", year: 2024 },
+  { title: "Book Math", author: "Musa", year: 2025 },
+  { title: "Book Coding", author: "But", year: 2023 },
+  { title: "Book Science", author: "Hina", year: 2026 },
+  { title: "Book Urdu", author: "Ali", year: 2022 },
+];
+let filterbook = library1.filter((Book) => Book.year >= 2024);
+console.log(filterbook);
+let desec = filterbook.sort((a, b) => b.year - a.year);
+console.log(desec);
+
+desec.forEach((Book) => {
+  console.log(Book.title, "-", Book.year);
+});
+
+//  Ek function calculate banao jo do numbers le.
+// Us function ko teesra parameter ek callback function dena hoga
+// jo operation decide karega (e.g. addition, subtraction, multiplication).
+// Tum 3 different callback functions banao:
+// add → do numbers ka sum
+// subtract → do numbers ka difference
+// multiply → do numbers ka product
+// calculate ko call karke teeno operations ka result print karo.
+
+function calculator(a,b, operation){
+   return operation(a,b)
+}
+function Add(x,y){
+  return x+y;
+}
+function subtraction(x,y){
+  return x-y;
+}
+function mult(x,y){
+  return x*y;
+}
+function divi(x,y){
+  return x/y;
+}
+console.log(calculator(2,3, Add));
+console.log(calculator(2,3, subtraction));
+console.log(calculator(2,3, mult));
+console.log(calculator(2,3, divi));
