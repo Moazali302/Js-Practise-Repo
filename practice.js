@@ -623,3 +623,134 @@ btn4.addEventListener("click",function(){
      textcolour .textContent=randomcolour;
 
 });
+let person5=[{
+
+  name:"Ali",
+  age :24,
+  isStudent: true,
+  skills:["Html","Css","Js"],
+},
+ {
+    name: "Hina",
+    age: 22,
+    isStudent: false,
+    skills: ["Python", "SQL"],
+  },
+  {
+    name: "Usman",
+    age: 25,
+    isStudent: true,
+    skills: ["React", "Node.js"],
+  }];
+
+person5.forEach(p=>{
+  console.log(p.name," - " ,p.skills);
+});
+
+
+// person5.name ="hina";
+// console.log(person5[0].name);
+// console.log(person5[0].name);
+// console.log(person5[0].age);
+// console.log(person5[0].isStudent);
+// console.log(person5[0].skills ); 
+
+//hight order function
+
+function greet(name){
+  return ` Hello ${name}`;
+}
+function processuserInput(callback){
+  let name="Muaz";
+  console.log(callback(name));
+}
+processuserInput(greet);
+
+//
+
+// Ek function banao applyOperation(a, b, operation)
+// a aur b → do numbers honge
+// operation → ek callback function hoga jo decide karega kya karna hai (add, subtract, multiply, divide)
+// Tumhe 4 alag functions banana hain → add, subtract, multiply, divide
+// Phir unko applyOperation ke sath call karna hai.
+
+function aplyOperation(a,b , operation){
+   return operation(a,b);
+}
+function Additon(x,y){
+ console.log( x+y);
+}
+function Subtract(x,y){
+  console.log( x-y);
+}
+function multipl(x,y){
+  console.log( x*y);
+}
+function Divid(x,y){
+  console.log( x/y);
+}
+aplyOperation(3,4, Additon);
+aplyOperation(3,4, Subtract);
+aplyOperation(3,4, multipl);
+aplyOperation(3,4, Divid);
+
+
+// Ek function addNumbers banao jo kitne bhi numbers le aur unka sum return kare.
+
+function addNumbers(...numbers){
+    let total=0;
+    for(let num of numbers){
+      total+=num;
+    }
+
+
+      return total;
+    }
+    console.log(addNumbers(2,3,4,5,6,7));
+  
+
+// 🔹 Problem 2: Find Maximum Number from Array
+
+    let marks = [85, 92, 76, 98, 89];
+  console.log(Math.max(...marks));
+
+
+//   Problem 3: Copy & Modify Object
+
+// Ek object diya gaya hai:
+
+// Is object ka ek copy banao using spread
+//.
+// Copy me ek new property city: "Lahore" add karo.
+
+// Print dono objects, aur dekho ke original me koi change na ho.
+
+let student9 = { name: "Ali", age: 20, grade: "A" };
+let copyobj={...student9};
+copyobj.city=("Lahore");
+console.log(student9);
+console.log(copyobj);
+
+
+// Ek function combineAndSum banao jo:
+
+// Pehle 2 arrays lega.
+
+// Dono arrays ko spread syntax se merge karega.
+
+// Phir jitne bhi extra numbers diye gaye hain (function ke arguments me), unko bhi merge karega (use rest parameter).
+
+// Final array ka sum return karega.
+
+let ar1=[2,4,6,8];
+let ar2=[3,5,7,9];
+
+function combineandSum(ar1,ar2,...extra){
+  let merged=[...ar1,...ar2,...extra];
+  let Total=0;
+  for(let num of merged){
+    Total+=num;
+  }
+  return Total;
+}
+console.log(combineandSum(ar1,ar2,5,6,7,8,9));
