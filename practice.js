@@ -609,3 +609,17 @@ console.log(calculator(2,3, Add));
 console.log(calculator(2,3, subtraction));
 console.log(calculator(2,3, mult));
 console.log(calculator(2,3, divi));
+
+//create div when user click button change div colour (randomly)
+
+let di=document.getElementById("box");
+let textcolour=document.getElementById("textColor");
+let btn4=document.querySelector("#boxbtn");
+
+
+btn4.addEventListener("click",function(){
+     let randomcolour= `rgb(${Math.floor(Math.random()*256)},${Math.floor(Math.random()*256)},${Math.floor(Math.random()*256)})`;
+     di.style.backgroundColor=randomcolour;
+     textcolour .textContent=randomcolour;
+
+});
