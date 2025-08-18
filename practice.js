@@ -754,3 +754,109 @@ function combineandSum(ar1,ar2,...extra){
   return Total;
 }
 console.log(combineandSum(ar1,ar2,5,6,7,8,9));
+
+
+//🔥 Problem: Shopping Cart with Discount
+
+// Ek function checkout banao jo:
+
+// Do arrays lega (cart1, cart2).
+
+// Extra items bhi le (rest parameters se).
+
+// Sabko merge karke total nikale.
+
+// Agar total 2000 se zyada ho to 10% discount lagaye.
+
+// Final total return kare.
+
+let cart1=[200,250,500];
+let cart2=[1000,300,300];
+
+function checkOut(cart1,cart2,...extra){
+  let cartmerge=[...cart1,...cart2,...extra];
+  let totalval=0;
+  for(let val of cartmerge){
+    totalval+=val;
+  }
+  if(totalval>=2000){
+    return  totalval-(totalval*10/100);
+  }
+  return totalval;
+}
+console.log(checkOut(cart1,cart2,20,30,50));
+
+// function work using set interval  
+
+// const Sumfun=(a,b)=>{
+//  alert("Set interval is working "+(a+b));
+//  a+b;
+// }
+//  setInterval(Sumfun,7000,3,4);
+
+//set timeout or interval //
+//       ||
+// let count=0;
+// const id=setInterval(()=>{
+//   console.log("HEllo"+count);
+//   count++
+// },1000);
+// setTimeout(() => {
+//   clearInterval(id);
+//   console.log("Set interval is stoped");
+// }, 7000);
+
+
+// Ek countdown timer banao jo 10 se start ho aur har second decrement hota rahe.
+
+// let countdown=10;
+// const val =setInterval(()=>{
+//    console.log(countdown);
+//    countdown-- ;
+//    if(countdown<0){
+//     clearInterval(val);
+//     console.log("Happy New year");
+//    }
+// },1000);
+
+
+let countdown=10;
+const display=document.getElementById("countDown");
+
+const vale=setInterval(()=>{
+  display.textContent=countdown;
+  countdown--;
+  if(countdown<0){
+    clearInterval(vale);
+  display.style.color="rgba(3, 101, 46, 1)";
+  display.textContent="HAPPY NEW YEAR 2025";
+   
+  }
+
+},1000)
+
+
+function updateclock(){
+ let now= new Date();
+  let hours=now.getHours();
+ let minutes=now.getMinutes();
+ let seconds=now.getSeconds();
+ let ampm=hours<12 ?"AM":"PM";
+
+   hours = hours%12;
+   hours=hours? hours:12;
+
+ hours=hours<10? "0"+ hours: hours;
+minutes=minutes <10 ? "0"+ minutes:minutes;
+seconds=seconds <10 ? "0"+seconds:seconds;
+
+document.getElementById("clock").textContent=`${hours}:${minutes}:${seconds}:${ampm}`;
+}
+
+
+ setInterval(updateclock,1000)
+ updateclock();
+
+
+
+
