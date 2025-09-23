@@ -836,8 +836,18 @@ const vale=setInterval(()=>{
 },1000)
 
 
-function updateclock(){
+function updateDateandTime(){
  let now= new Date();
+
+let days=["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+    let months = ["January", "February", "March", "April", "May", "June",
+                    "July", "August", "September", "October", "November", "December"];
+
+  let dayName=days[now.getDay()];
+  let day=now.getDate();
+  let monthName=months[now.getMonth()];
+  let years=now.getFullYear();
+
   let hours=now.getHours();
  let minutes=now.getMinutes();
  let seconds=now.getSeconds();
@@ -850,12 +860,158 @@ function updateclock(){
 minutes=minutes <10 ? "0"+ minutes:minutes;
 seconds=seconds <10 ? "0"+seconds:seconds;
 
-document.getElementById("clock").textContent=`${hours}:${minutes}:${seconds}:${ampm}`;
+let daystr=`${dayName}:${day}:${monthName}:${years}`;
+let timestr=`${hours}:${minutes}:${seconds}:${ampm}`;
+
+document.getElementById("dateTime").textContent=`${daystr}| ${timestr}`;
 }
 
+ setInterval(updateDateandTime,1000)
+ updateDateandTime();
 
- setInterval(updateclock,1000)
- updateclock();
+ //promises 
+//  Ek Promise banao jo exam ka result check kare.
+
+// Agar marks >= 40 → Resolve karo "Pass ✅"
+
+// Agar marks < 40 → Reject karo "Fail ❌"
+
+// Us promise ko dono tariko se handle karo:
+
+// then / catch
+
+// async / await
+
+// function checkResult(marks){
+//   return new Promise((resolve,reject)=>{
+//     if(marks>40){
+//       resolve("pass");
+//     }
+//     else{
+//       reject("Fail");
+//     }
+//   });
+// }
+//     checkResult(35).then((result)=>{
+//       console.log("Result is :",result);
+//     })
+//     .catch((Error)=>{
+//       console.log("result is :",Error);
+//     });
+
+//     async function getResult() {
+//       try{
+//         let result=await checkResult(50);
+//         console.log("Result is :",result);
+//       }
+//       catch(Error){
+//         console.log("Result is :",Error);
+//       }
+//     }
+
+// getResult();
+
+// Tumhe ek function banana hai jo ek Promise return kare.
+
+// Agar number even (2 se divisible) ho to resolve("Even Number ✅")
+
+// Agar number odd ho to reject("Odd Number ❌")
+
+function checkEvenOdd(num){
+  return new Promise((resolve,reject)=>{
+    if(num%2===0){
+      resolve("Even Number");
+    }
+    else{
+      reject("Odd Number");
+    }
+  })
+}
+  checkEvenOdd(10).then((result)=>{
+    console.log("Number is :",result);
+  }).catch((error)=>{
+    console.log("Number is :",error);
+  });
+  async function getNumber(){
+   try{
+    let result=await checkEvenOdd(5);
+    console.log("Number is :",result);
+   }
+   catch(error){
+    console.log("Number is :",error);
+   }
+  }
+  getNumber();
+
+//   Tumhe ek function wait(ms) banana hai jo ek Promise return kare.
+
+// Wo given milliseconds (ms) ka wait kare.
+
+// Fir resolve("Done ⏳") kare.
+
+// Aur fir tum then/catch aur async/await dono tariko se use karke result print karna.
+
+function wait(ms){
+  return new Promise((resolve,reject)=>{
+    if(ms<0){
+      reject("Ms is not negative");
+    }
+    else{
+      setTimeout(() => {
+         resolve ("Done with in "+ms +"ms ");
+      },ms);
+    }
+  })
+}
+wait(3000).then((result)=>{
+  console.log("Result is :",result);
+}).catch((error)=>{
+  console.log("Result is :",error);
+});
+async function getMs(){
+   try{
+    let result=await wait(6000);
+    console.log("Result is :",result);
+   }
+   catch(error){
+    console.log("Result is :",error);
+   }
+}
+getMs();
+  
+function fetchData(){
+fetch("https://randomuser.me/api/").then(Response=>{
+  Response.json().then(data=>{
+    let user=data.results[0];
+    console.log("username is :",user.name.first,user.name.last);
+    console.log("Email is :",user.email);
+    console.log("country is :",user.location.country );
+    console.log("city is :",user.location.city);
+
+  })
+})
+.catch(error=>{
+  console.log("Error is :",error);
+})
+}
+
+async function getData() {
+try{
+  let Response=await fetch("https://api.open-meteo.com/v1/forecast?latitude=31.5&longitude=74.3&current_weather=true");
+  let data=await Response.json();
+ document.getElementById("weather").innerHTML=`<p><b>weather: ${data.current_weather.temperature}C</b></p>`;
+
+  console.log("Current Weather",data.current_weather.temperature);
+  console.log("wind speed is :",data.current_weather.windspeed);
+  
+  }
+catch(error){
+  console.log("Error is :",error);
+}
+}
+fetchData();
+getData();
+
 
 
 

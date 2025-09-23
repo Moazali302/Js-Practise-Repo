@@ -63,6 +63,18 @@ nav ul li a:hover {
   color: #f1c40f;
 }
 
+/* Navbar Date-Time */
+#dateTime {
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-left: 20px;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 5px 12px;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
 /* Hamburger menu */
 .menu-toggle {
   display: none;
@@ -225,55 +237,44 @@ button:hover {
     width: 95%;
     margin: auto;
   }
+
+  #dateTime {
+    margin-top: 10px;
+    text-align: center;
+    display: block;
+
+  }
+}
+#weather {
+  margin-left: 20px;
+  background: rgba(255, 255, 255, 0.15); /* Transparent glass style */
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease, background 0.3s ease;
 }
 
-#box{
+/* Hover effect */
+#weather:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.25);
+}
+
+#box {
   width: 200px;
   height: 200px;
   background-color: red;
   margin: 10px;
   padding: 10px;
-
-}
-   #countDown {
-      font-size: 3rem;
-      font-weight: bold;
-    }
-#clock{
-  display: flex;
-  justify-content: center;   
-  align-items: center;     
-  height: 50vh;             
-  color: rgb(199, 19, 52);  
-  font-size: 4rem;        
-  letter-spacing: 5px;            
 }
 
-#curent{
-  display :flex;
-  justify-content: center;
-  font-size: 2rem;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+#countDown {
+  font-size: 3rem;
   font-weight: bold;
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 @media (max-width: 500px) {
   nav .logo {
