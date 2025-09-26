@@ -1012,7 +1012,155 @@ catch(error){
 fetchData();
 getData();
 
+// store data in local storage 
+
+   //comment prompt for better practice 
+
+// let key=prompt("Enter your Country name")
+
+// if(key){
+//   let value=prompt("Enter your city name");
+// if(value){
+// localStorage.setItem(key,value);
+// alert(`your country is ${key}and city is ${localStorage.getItem(key)}`);
+// }
+// }
+// localStorage.removeItem("Muaz");
+// localStorage.clear();
 
 
+// ✅ Requirement:
+
+// User se name, age, city input lo (prompts ya input box se).
+
+// Ye sab ek object banakar LocalStorage me save karo.
+
+// Page refresh karne par wo data console me show ho.
+
+ function askUserInfo(){
+let name= prompt("Enter your name")
+console.log("Name prompt is working");
+
+let userAge= prompt("Enter your age")
+console.log("Age prompt is working");
+
+let city= prompt("Enter your city")
+console.log("City prompt is working");
+
+let users={
+  name:name,
+  age:userAge,
+  city:city
+};
+localStorage.setItem("userProfile",JSON.stringify(users));
+let savedData=JSON.parse(localStorage.getItem("userProfile"));
+
+ console.log("Your Name is  :",savedData.name);
+ console.log("Your Age is :",savedData.age);
+ console.log("Your city is :",savedData.city);
+}
+
+// Ek function banao getUserData() jo:
+
+// Ek Promise banaye jo 2 sec baad "User data loaded!" return kare.
+
+// async/await ka use karke us Promise ka result console me print kare.
+
+// Function ko call kro aur check kro output sahi aa raha hai ya nahi.
+
+async function getUserData() {
+  let promise=new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+      resolve("Data is received")
+    },2000)
+  })
+  let result=await promise
+  console.log(result);
+}
+getUserData();
+
+//callback function
+
+// Ek function banao processUserData(name, callback) jo:
+
+// Console me likhe → "Processing user: <name>".
+
+// Fir callback function ko call kare.
+
+// Callback function ka kaam ho "User processed successfully!" print karna.
+
+function processUSerData(name,callback){
+  console.log("Processing user "+ name);
+  callback();
+}
+function userProcessd(){
+  console.log("User processed successfully!");
+}
+processUSerData("Muaz",userProcessd);
 
 
+// Ek function banao downloadFile(fileName, callback) jo:
+
+// Console me print kare → "Downloading <fileName>...".
+
+// setTimeout ka use karo (2 sec ka delay) takay lagay file download ho rahi hai.
+
+// 2 sec ke baad callback function run ho jo print kare:
+// "Download complete: <fileName>".
+
+function downloadFile(fileName,callback){
+ console.log("Downloading "+ fileName+"....");
+ setTimeout(()=>{
+  callback(fileName);
+ },2000)
+}
+function downloadComplete(fileName){
+  console.log("Download complete: "+ fileName);
+}
+downloadFile("file1.txt",downloadComplete);
+
+// Real-life Example:
+
+// Socho tumhari app me 3 steps hain:
+
+// User data fetch karna
+
+// Photos download karna
+
+// Posts load karna
+
+ function getUsers(){
+    return new Promise((resolve)=>{
+      setTimeout(()=>{
+        console.log("users Data is Fetching..")
+        resolve();
+      },1000)
+   
+    })
+
+ }
+ function getPhotos(){
+  return new Promise((resolve)=>{
+    setTimeout(()=>{
+      console.log("photos Data is Fetching..")
+      resolve();
+    },1000)
+    
+  })  
+ }
+ function getPosts(){
+  return new Promise((resolve)=>{
+    setTimeout(()=>{
+      console.log("Post Data is Fetching..")
+      resolve();
+    },1000)
+ 
+  })
+ }
+ async function loadData() {
+  await getUsers();
+  await getPhotos();
+  await getPosts();
+  console.log("All Data is loaded");
+ }
+ loadData();
